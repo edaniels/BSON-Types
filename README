@@ -1,0 +1,35 @@
+NAME
+    BSON-Types - Hierarchy of BSON Types for BSON implementations to use
+
+VERSION
+    Version 0.1
+
+SYNOPSIS
+        package MyBSON::String;
+
+        use base BSON::Types::String;
+
+        sub new {
+
+            my ($class, $str) = @_;
+            bless { value => $str }, $class;
+        }
+
+        sub value {
+
+            return $_[0]->{value};
+        }
+
+DESCRIPTION
+    This module provides a basic hierarchy of BSON types that
+    should be implemented by other modules. BSON modules that
+    provide an encoder/decoder must implement the methods listed
+    for the specific BSON type. The idea is that an encoder can accept
+    any kind of BSON::Types::* and encode it properly.
+
+AUTHOR
+    Eric Daniels, "<eric at erdaniels.com>"
+
+DEVELOPMENT
+    The source code of this module is available on GitHub:
+    <https://github.com/edaniels/BSON-Types>
